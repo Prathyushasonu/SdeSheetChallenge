@@ -1,0 +1,20 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from typing import List
+
+def setZeros(matrix: List[List[int]]) -> None:
+	# Write your code here.
+    rows=[1 for i in range(len(matrix))]
+    col=[1 for i in range(len(matrix[0]))]
+    for i in range(len(rows)):
+        for j in range(len(col)):
+            if matrix[i][j]==0:
+                rows[i],col[j]=0,0
+    for i in range(len(rows)):
+        for j in range(len(col)):
+            if rows[i]==0 or col[j]==0:
+                matrix[i][j]=0
+    return matrix
