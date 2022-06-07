@@ -1,0 +1,14 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def maximumProfit(prices):
+    # Write your code here.
+    buy=prices[0]
+    profit=0
+    for i in range(1,len(prices)):
+        profit=max(profit,prices[i]-buy)
+        if buy>prices[i]:
+            buy=prices[i]
+    return profit
