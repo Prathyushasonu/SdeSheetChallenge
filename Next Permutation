@@ -1,0 +1,28 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+def reverse(l,h,lst):
+    while l<h:
+        lst[l],lst[h]=lst[h],lst[l]
+        l+=1
+        h-=1
+def nextPermutation(permutation, n):
+    # Write your code here.
+    # Return a list.
+    index1=-1
+    for i in range(n-2,-1,-1):
+        if permutation[i]<permutation[i+1]:
+            index1=i
+            break
+    if index1==-1:
+        return permutation[::-1]
+    for i in range(n-1,-1,-1):
+        if permutation[i]>permutation[index1]:
+            index2=i
+            break
+    permutation[index1],permutation[index2]=permutation[index2],permutation[index1]
+    
+    reverse(index1+1,n-1,permutation)
+    return permutation
+        
