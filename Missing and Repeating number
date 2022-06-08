@@ -1,0 +1,17 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def missingAndRepeating(arr, n):
+    # Write your code here
+    ans=[0 for i in range(n)]
+    for i in range(n):
+        if ans[arr[i]-1]!=0:
+            ex=arr[i]
+        else:
+            ans[arr[i]-1]=1
+    for i in range(n):
+        if ans[i]==0:
+            mi=i+1
+    return [mi,ex]
