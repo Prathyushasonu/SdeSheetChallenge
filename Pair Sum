@@ -1,0 +1,40 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def pairSum(arr, s):
+    # Write your code here.
+    arr.sort()
+    low=0
+    hi=len(arr)-1
+    ans=[]
+    while low<hi:
+        sum=arr[low]+arr[hi]
+        if sum==s:
+            if arr[low]==arr[hi]:
+                cnt=0
+                while arr[hi]==arr[low]:
+                    cnt+=1
+                    hi-=1
+                for i in range(cnt*(cnt-1)//2):
+                    ans.append([arr[low],arr[low]])
+            else:
+                leftcnt=1
+                rightcnt=1
+                while arr[low]==arr[low+1]:
+                    leftcnt+=1
+                    low+=1
+                while arr[hi]==arr[hi-1]:
+                    rightcnt+=1
+                    hi-=1
+                for i in range(leftcnt*rightcnt):
+                    ans.append([arr[low],arr[hi]])
+                hi-=1
+                    
+        elif sum<s:
+            low+=1
+        else:
+            hi-=1
+    return ans
+  
