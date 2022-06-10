@@ -1,0 +1,25 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def lengthOfLongestConsecutiveSequence(arr, n):
+    # Write your code here.
+    sett=set()
+    for i in range(n):
+        sett.add(arr[i])
+    cnt=0
+    ans=0
+    for i in range(n):
+        cnt=0
+        if arr[i]-1 in sett:
+            continue
+        else:
+            cnt+=1
+            while 1:
+                if arr[i]+cnt in sett:
+                    cnt+=1
+                else:
+                    break
+        ans=max(ans,cnt)
+    return ans
