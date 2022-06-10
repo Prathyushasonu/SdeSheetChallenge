@@ -1,0 +1,21 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def LongestSubsetWithZeroSum(arr):
+
+    # Write your Code here.
+    # Return an integer denoting the answer.
+    dic={}
+    sum=0
+    ans=0
+    for i in range(len(arr)):
+        sum+=arr[i]
+        if sum==0:
+            ans=max(ans,i+1)
+        elif sum in dic:
+            ans=max(ans,i-dic[sum])
+        else:
+            dic[sum]=i
+    return ans
