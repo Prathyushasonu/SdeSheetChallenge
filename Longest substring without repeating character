@@ -1,0 +1,26 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def uniqueSubstrings(input ) :
+    # Write your code here.
+    i=0
+    j=0
+    dic={}
+    ans=0
+   
+    while j<len(input):
+        if input[j] not in dic:
+            dic[input[j]]=1
+            ans=max(ans,j-i+1)
+            j+=1
+        else:
+      
+            while i<j and input[j] in dic:
+                dic[input[i]]-=1
+                if dic[input[i]]==0:
+                    dic.pop(input[i])
+                i+=1
+    return ans
+        
