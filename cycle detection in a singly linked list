@@ -1,0 +1,23 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+'''
+    class Node :
+        def __init__(self, data) :
+            self.data = data
+            self.next = None
+'''
+
+def detectCycle(head) :
+    # Write your code here.
+    p1=head
+    p2=head
+    while p1 and p2 and p2.next:
+        p2=p2.next.next
+        p1=p1.next
+        if p1==p2:
+            return True
+    return False
+    
